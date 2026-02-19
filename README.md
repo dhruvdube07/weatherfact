@@ -3,7 +3,7 @@
 A specialized weather monitoring system developed as a **Java Programming Group Project**. This application synchronizes real-time atmospheric data with a high-end "Glassmorphism" interface.
 
 ## 📡 Live Access
-* **Official Website:** [weatherfact.ws](https://weatherfact.ws)
+* **Official Website:** [weatherfa.ct.ws](https://weatherfa.ct.ws)
 * **Lead Developer:** Solely published and maintained by **Dhruv Dubey**.
 * **Host:** Exclusively available on GitHub and the dedicated web domain.
 
