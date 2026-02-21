@@ -1,0 +1,134 @@
+<div id="simple-pro-dash" style="width: 100%; min-height: 100vh; background: #000; color: #fff; font-family: 'Inter', system-ui, sans-serif; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; padding: 20px; box-sizing: border-box; -webkit-font-smoothing: antialiased;">
+
+    <div style="position: absolute; width: 100%; height: 100%; background: radial-gradient(circle at 50% 110%, #081a16 0%, #000 60%); z-index: 1;"></div>
+
+    <div style="position: relative; z-index: 10; width: 100%; max-width: 1100px; display: flex; flex-direction: column; gap: 40px;">
+        
+        <div style="text-align: center;">
+            <p style="font-size: 0.65rem; letter-spacing: 4px; color: #00b1ab; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; opacity: 0.7;">Thermal_Protocol_v4</p>
+            <div style="display: inline-flex; align-items: center; gap: 40px;">
+                <h1 id="main-temp" style="font-size: 9.5rem; font-weight: 900; margin: 0; line-height: 1; letter-spacing: -6px; color: #39b54a;">27°</h1>
+                
+                <div style="text-align: left; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 30px;">
+                    <p style="font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; color: #00b1ab; margin: 0 0 5px 0;">FEELS LIKE</p>
+                    <p id="feel-temp" style="font-size: 3.5rem; font-weight: 700; margin: 0; line-height: 1;">27°</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            
+            <div class="pro-card">
+                <span class="tag">HYDRATION LOGIC</span>
+                <div class="viz">
+                    <div class="orb">
+                        <div id="h2o-fill" class="wave"></div>
+                        <div class="val"><span id="h2o-num">3.1</span><small>L</small></div>
+                    </div>
+                </div>
+                <span class="foot">MIN_INTAKE</span>
+            </div>
+
+            <div class="pro-card">
+                <span class="tag">ATMOS DENSITY</span>
+                <div class="viz">
+                    <div class="pill">
+                        <div id="hum-bar" class="pill-fill"></div>
+                        <div class="val" style="z-index: 20; font-size: 2rem; background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 12px; backdrop-filter: blur(4px);">
+                            <span id="hum-num">60</span><span style="font-size: 1rem; opacity: 0.6;">%</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="foot">HUMIDITY</span>
+            </div>
+
+            <div class="pro-card">
+                <span class="tag">SWEAT POINT</span>
+                <div class="viz">
+                    <div class="ring-box">
+                        <div class="pulse"></div>
+                        <div id="sweat-msg" class="val" style="font-size: 1.1rem; color: #39b54a;">OPTIMAL</div>
+                    </div>
+                </div>
+                <span class="foot">BIOMETRICS</span>
+            </div>
+
+            <div class="pro-card">
+                <span class="tag">ACTIVE PROTOCOL</span>
+                <div class="viz">
+                    <div class="ring-box">
+                        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="4"/>
+                            <circle id="act-ring" cx="50" cy="50" r="46" fill="none" stroke="#39b54a" stroke-width="5" stroke-dasharray="140 289" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+                        </svg>
+                        <div class="val" style="font-size: 2rem;"><span id="act-num">35</span><small>m</small></div>
+                    </div>
+                </div>
+                <span class="foot">EXERCISE</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+    .pro-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 35px; padding: 25px 10px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 320px; box-sizing: border-box; transition: background 0.3s; }
+    .pro-card:hover { background: rgba(255, 255, 255, 0.05); }
+    
+    .tag { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; color: #00b1ab; margin: 0; }
+    .foot { font-size: 0.55rem; font-weight: 600; opacity: 0.2; letter-spacing: 1px; margin: 0; }
+    
+    .viz { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; position: relative; }
+    .val { font-weight: 900; color: #fff; position: absolute; pointer-events: none; }
+    .val small { font-size: 0.9rem; margin-left: 2px; opacity: 0.5; }
+
+    /* WATER */
+    .orb { width: 130px; height: 130px; border-radius: 50%; border: 1px solid rgba(0, 177, 171, 0.2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .wave { position: absolute; bottom: 0; width: 200%; height: 60%; background: #00b1ab; opacity: 0.4; border-radius: 42%; animation: rot 6s infinite linear; left: -50%; transition: height 1.5s ease-out; }
+
+    /* PILL (ATMOS DENSITY) */
+    .pill { width: 70px; height: 150px; background: rgba(255,255,255,0.03); border-radius: 100px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; }
+    .pill-fill { position: absolute; bottom: 0; width: 100%; background: linear-gradient(to top, #00b1ab, #39b54a); transition: 1.5s ease-out; height: 60%; z-index: 1; }
+
+    /* RING & PULSE */
+    .ring-box { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; }
+    .pulse { position: absolute; inset: 0; border: 2px solid #39b54a; border-radius: 50%; animation: pulse 2s infinite; opacity: 0; }
+
+    @keyframes rot { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.3); opacity: 0; } }
+</style>
+
+<script>
+(function() {
+    const update = (t, h, f) => {
+        document.getElementById('main-temp').innerText = Math.round(t) + '°';
+        document.getElementById('feel-temp').innerText = Math.round(f) + '°';
+        document.getElementById('hum-num').innerText = Math.round(h);
+        document.getElementById('hum-bar').style.height = h + '%';
+
+        const h2o = (2.5 + (t - 25) * 0.12).toFixed(1);
+        document.getElementById('h2o-num').innerText = h2o;
+        document.getElementById('h2o-fill').style.height = (h2o / 5 * 100) + '%';
+
+        const sweat = document.getElementById('sweat-msg');
+        if (t > 32 || h > 70) { sweat.innerText = "CRITICAL"; sweat.style.color = "#ff4b4b"; }
+        else { sweat.innerText = "OPTIMAL"; sweat.style.color = "#39b54a"; }
+
+        const act = t > 33 ? 20 : 40;
+        document.getElementById('act-num').innerText = act;
+        document.getElementById('act-ring').style.strokeDasharray = (act / 60 * 289) + " 289";
+    };
+
+    const init = async () => {
+        try {
+            const loc = await fetch('https://ipapi.co/json/').then(r => r.json());
+            const w = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature`).then(r => r.json());
+            update(w.current.temperature_2m, w.current.relative_humidity_2m, w.current.apparent_temperature);
+        } catch (e) { update(27, 60, 28); }
+    };
+
+    init();
+})();
+</script>
