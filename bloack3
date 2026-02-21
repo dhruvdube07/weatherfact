@@ -1,0 +1,144 @@
+<div id="local-intel-terminal" style="padding: 60px 5%; background: #000;">
+    
+    <div class="glass-shard local-focus-module" style="position: relative; overflow: hidden; min-height: 600px;">
+        
+        <div class="radar-container">
+            <div class="radar-circle"></div>
+            <div class="radar-sweep"></div>
+        </div>
+
+        <div style="position: relative; z-index: 5;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 60px;">
+                <div>
+                    <span class="meta-tag" style="color: #00b1ab; letter-spacing: 5px;">PROXIMITY SCAN: 10KM RADIUS</span>
+                    <h2 style="font-family: 'Syne', sans-serif; font-size: 3.5rem; color: #fff; margin: 10px 0 0 0;">Premier Local Destination</h2>
+                </div>
+                <div class="distance-badge">
+                    <span id="radius-dist">8.4</span>
+                    <small>KM AWAY</small>
+                </div>
+            </div>
+
+            <div class="featured-spot-box animate-reveal">
+                <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center;">
+                    
+                    <div class="spot-details">
+                        <h3 id="spot-name" class="cinema-font" style="font-size: 3rem; color: #39b54a;">Vasai-Virar Wetlands</h3>
+                        <p class="tech-font" style="font-size: 1.1rem; line-height: 1.8; color: #fff; margin: 25px 0;">
+                            AN ESSENTIAL BIOLOGICAL CORRIDOR CONSISTING OF MANGROVE ECOSYSTEMS AND ESTUARINE FLATS. THESE WETLANDS ACT AS A NATURAL BUFFER AGAINST TIDAL SURGES AND PROVIDE A CRITICAL RESTING GROUND FOR MIGRATORY AVIAN SPECIES. 
+                        </p>
+                        
+                        <div class="attribute-grid">
+                            <div class="attr">
+                                <span>ECOLOGY</span>
+                                <strong>Mangrove Forest</strong>
+                            </div>
+                            <div class="attr">
+                                <span>NASA HEAT MAP</span>
+                                <strong style="color: #00b1ab;">-4.2°C Cooling</strong>
+                            </div>
+                            <div class="attr">
+                                <span>ACCESSIBILITY</span>
+                                <strong>High / Open</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-shard action-mini-card" style="background: rgba(255,255,255,0.02); border-radius: 50px;">
+                        <p style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; color: #fff;">NAVIGATIONAL UPLINK</p>
+                        <p style="font-size: 1.2rem; margin: 15px 0; line-height: 1.5;">Initiate expedition to the core restoration zone.</p>
+                        <button onclick="flyToLocalSpot()" class="exec-btn-local">DEPLOY SATELLITE PATH</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Syne:wght@800&family=Playfair+Display:italic,wght@700&family=Inter:wght@300;600&display=swap');
+
+    .tech-font { font-family: 'JetBrains Mono', monospace; }
+    .cinema-font { font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .glass-shard {
+        background: rgba(10, 20, 18, 0.6);
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 80px;
+        padding: 60px;
+    }
+
+    /* RADAR VISUALS */
+    .radar-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        opacity: 0.15;
+        pointer-events: none;
+    }
+    .radar-circle {
+        position: absolute;
+        inset: 0;
+        border: 1px solid #39b54a;
+        border-radius: 50%;
+        animation: radarPulse 4s infinite;
+    }
+    .radar-sweep {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        background: conic-gradient(from 0deg, #39b54a, transparent 40%);
+        transform-origin: top left;
+        animation: radarRotate 6s linear infinite;
+    }
+
+    /* DISTANCE BADGE */
+    .distance-badge {
+        background: linear-gradient(135deg, #39b54a, #00b1ab);
+        padding: 20px 30px;
+        border-radius: 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(57, 181, 74, 0.3);
+    }
+    .distance-badge span { font-size: 2.5rem; font-weight: 800; display: block; line-height: 1; color: #000; }
+    .distance-badge small { font-size: 0.7rem; font-weight: 900; color: #000; letter-spacing: 1px; }
+
+    /* ATTRIBUTE GRID */
+    .attribute-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .attr { border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px; }
+    .attr span { font-size: 0.6rem; letter-spacing: 2px; color: #00b1ab; display: block; margin-bottom: 5px; }
+    .attr strong { font-size: 1rem; color: #fff; }
+
+    /* BUTTON */
+    .exec-btn-local {
+        width: 100%;
+        background: #39b54a;
+        border: none;
+        color: #000;
+        padding: 20px;
+        border-radius: 100px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+    .exec-btn-local:hover { background: #00b1ab; transform: scale(1.02); }
+
+    @keyframes radarRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes radarPulse { 0% { transform: scale(0.8); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.2); opacity: 0; } }
+</style>
+
+<script>
+function flyToLocalSpot() {
+    // Dynamically opens maps focused on the Vasai-Virar Wetland restoration area
+    window.open('https://www.google.com/maps/search/Vasai+Wetlands+Restoration/@19.33,72.81,13z', '_blank');
+}
+</script>
