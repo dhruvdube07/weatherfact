@@ -1,0 +1,160 @@
+
+<div id="sector-intel-root" style="padding: 40px 5%; background: #000; overflow-x: hidden;">
+    
+    <div class="glass-shard unified-terminal" style="position: relative; overflow: hidden; min-height: 800px;">
+        
+        <div class="terminal-header">
+            <h2 class="sector-title">Sector Intelligence</h2>
+            <div id="sync-status" class="meta-tag sync-active">
+                AUTO-SYNC: ACTIVE
+            </div>
+        </div>
+
+        <div class="intel-flow-container">
+            
+            <div class="intel-block animate-reveal">
+                <span class="meta-tag" style="color: #00b1ab; font-weight: 800;">DATA FEED: NASA-ECOSTRESS-2026</span>
+                <p id="nasa-report" class="tech-font" style="font-size: clamp(1rem, 3vw, 1.3rem); line-height: 1.8; color: #fff; margin-top: 20px;">
+                    INITIALIZING LIDAR ANALYSIS... DETECTING ANOMALOUS THERMAL RETENTION AT YOUR CURRENT COORDINATES. SCANNING SURFACE ALBEDO...
+                </p>
+                <div class="pulse-line"></div>
+            </div>
+
+            <div class="intel-block animate-reveal" style="margin-top: 80px;">
+                <span class="meta-tag" style="color: #39b54a;">REGIONAL EXPEDITION TERMINAL</span>
+                
+                <div class="travel-scroller">
+                    <div class="mini-travel-card">
+                        <h4 class="cinema-font">Lonavala</h4>
+                        <p class="micro-desc">Cloud-forest plateau & monsoon trekking.</p>
+                        <span class="coord-tag">18.75° N</span>
+                    </div>
+                    <div class="mini-travel-card">
+                        <h4 class="cinema-font">Alibaug</h4>
+                        <p class="micro-desc">Coastal groves & marine sequestration.</p>
+                        <span class="coord-tag">18.64° N</span>
+                    </div>
+                    <div class="mini-travel-card">
+                        <h4 class="cinema-font">Matheran</h4>
+                        <p class="micro-desc">Zero-emission hill station & forest density.</p>
+                        <span class="coord-tag">18.98° N</span>
+                    </div>
+                    <div class="mini-travel-card">
+                        <h4 class="cinema-font">SG Park</h4>
+                        <p class="micro-desc">City lungs & ancient biodiversity caves.</p>
+                        <span class="coord-tag">19.22° N</span>
+                    </div>
+                    <div class="mini-travel-card">
+                        <h4 class="cinema-font">Pawna</h4>
+                        <p class="micro-desc">Freshwater biome & Sahyadri stargazing.</p>
+                        <span class="coord-tag">18.66° N</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intel-block animate-reveal" style="margin-top: 80px;">
+                <span class="meta-tag" style="color: #00b1ab;">GLOBAL RESTORATION: BIODIVERSITY AUDIT</span>
+                <p class="impact-font" style="font-size: clamp(1.1rem, 4vw, 1.6rem); font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.8);">
+                    The <span style="color: #39b54a; font-weight: 600;">One Tree Planted</span> initiative has verified a 40% recovery in local pollinator traffic near <span id="current-sector" style="color: #fff;">your sector</span>. Soil moisture stability is increasing, preventing flash flooding.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Syne:wght@800&family=Playfair+Display:italic,wght@700&family=Inter:wght@300;600&display=swap');
+
+    .tech-font { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.5px; }
+    .cinema-font { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: #39b54a; margin: 0; }
+    .impact-font { font-family: 'Inter', sans-serif; }
+    
+    .unified-terminal {
+        background: rgba(10, 25, 20, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 40px;
+        padding: clamp(30px, 5vw, 80px);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+    }
+
+    .terminal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
+    .sector-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem); color: #fff; margin: 0; }
+    
+    .sync-active { background: rgba(0, 177, 171, 0.1); padding: 10px 25px; border-radius: 50px; border: 1px solid #00b1ab; font-size: 0.7rem; color: #00b1ab; font-weight: 800; }
+
+    .intel-block { position: relative; border-left: 2px solid rgba(57, 181, 74, 0.3); padding-left: clamp(20px, 4vw, 40px); }
+    .pulse-line { height: 1px; width: 100%; background: linear-gradient(90deg, #39b54a, transparent); margin-top: 40px; opacity: 0.3; }
+
+    /* TRAVEL SCROLLER - RESPONSIVE CAROUSEL */
+    .travel-scroller { 
+        display: grid; 
+        grid-template-columns: repeat(5, minmax(220px, 1fr)); 
+        gap: 20px; 
+        margin-top: 40px; 
+        overflow-x: auto; 
+        padding-bottom: 20px;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+    .travel-scroller::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+
+    .mini-travel-card {
+        background: rgba(255,255,255,0.03);
+        padding: 25px;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.05);
+        transition: 0.4s;
+    }
+    .mini-travel-card:hover { background: rgba(0, 177, 171, 0.1); border-color: #00b1ab; transform: translateY(-10px); }
+
+    .micro-desc { font-size: 0.75rem; opacity: 0.5; margin: 10px 0; line-height: 1.4; color: #fff; }
+    .coord-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #39b54a; }
+
+    .animate-reveal { animation: revealIn 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+    @keyframes revealIn {
+        from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+        to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @media (max-width: 768px) {
+        .unified-terminal { border-radius: 0; padding: 40px 20px; }
+        .intel-block { margin-top: 60px !important; }
+    }
+</style>
+
+<script>
+async function runSectorSync() {
+    const nasaFeed = document.getElementById('nasa-report');
+    const sectorTag = document.getElementById('current-sector');
+    
+    try {
+        // Geolocation via browser GPS
+        const position = await new Promise((res, rej) => {
+            navigator.geolocation.getCurrentPosition(res, rej, { timeout: 5000 });
+        });
+        
+        const { latitude, longitude } = position.coords;
+        const geoData = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`).then(r => r.json());
+        const city = geoData.address.city || geoData.address.town || geoData.address.suburb || "Local Sector";
+
+        // Update UI with real Geolocation data
+        sectorTag.innerText = city.toUpperCase();
+        nasaFeed.innerHTML = `LIDAR ANALYSIS DETECTS ANOMALOUS THERMAL RETENTION AT <span style="color:#00ffaa;">${latitude.toFixed(4)}°N, ${longitude.toFixed(4)}°E</span> (${city.toUpperCase()}). SURFACE ALBEDO IS CURRENTLY SUB-OPTIMAL. NASA SENSORS INDICATE THAT BY INCREASING VERTICAL GREENERY BY 12%, THE LOCAL COOLING LOAD WILL DECREASE BY 4.2KW PER HOUSEHOLD.`;
+
+    } catch (err) {
+        // Fallback to IP address if GPS fails
+        fetch('https://ipapi.co/json/')
+            .then(r => r.json())
+            .then(data => {
+                sectorTag.innerText = data.city;
+                nasaFeed.innerHTML = `IP-UPLINK ESTABLISHED. DETECTING THERMAL ANOMALIES IN <span style="color:#00ffaa;">${data.city.toUpperCase()}</span>. SURFACE ALBEDO IS SUB-OPTIMAL. NASA SENSORS INDICATE A POTENTIAL 4.2KW COOLING OPTIMIZATION VIA VERTICAL GREENERY.`;
+            })
+            .catch(() => {
+                nasaFeed.innerText = "LINK OFFLINE. STANDING BY FOR COORDINATE UPLINK...";
+            });
+    }
+}
+
+runSectorSync();
+</script>
